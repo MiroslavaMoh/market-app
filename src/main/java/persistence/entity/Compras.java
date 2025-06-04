@@ -1,6 +1,8 @@
 package persistence.entity;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="compras")
 public class Compras {
@@ -14,6 +16,13 @@ public class Compras {
     private String medio_pago;
     private String comentario;
     private Boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", insertable=false, updatable=false)
+    private Cliente cliente;
+
+    @OneToMany(mappedBy="producto")
+    private List<CompraProducto> productos;
 
     public Integer getId_compra() {
         return id_compra;

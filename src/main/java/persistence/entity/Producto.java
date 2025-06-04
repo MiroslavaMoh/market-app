@@ -1,4 +1,5 @@
-package persistence.entity;
+//package persistence.entity;
+package com.tecdesoftware.market.persistence.entity;
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
@@ -8,14 +9,18 @@ public class Producto {
     @Id //llave primaria
     //valor unico autoincrementable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column (name='id_producto')
-    private Integer id_producto;
+    @Column (name='id_producto')
+    private Integer idProducto;
     private String nombre;
     private Integer id_categoria;
     private String codigo_barras;
     private Double precio_venta;
     private Integer cantidad_stock;
     private Boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name="id_categoria", insertable=false, updatable = false) //insertar sin modificar
+    private Categoria categoria;
 
     public Integer getId_producto() {
         return id_producto;
