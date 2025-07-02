@@ -5,21 +5,28 @@ import jakarta.persistence.*;
 @Entity
 @Table (name="compras_productos")
 public class CompraProducto {
-
+    //ID de CompraProductosPK
     @EmbeddedId
     private CompraProductoPK id;
 
     private Integer cantidad;
+
     private Double total;
+
     private Boolean estado;
 
+    //Llave compuesta
+    //Final de relación con compra
     @ManyToOne
-    @JoinColumn(name="id_compra")
+    @MapsId("idCompra") // Enlaza con el campo del embeddable
+    @JoinColumn(name = "id_compra")
     private Compras compra;
 
+    //final de relacion con producto
     @ManyToOne
-    @JoinColumn(name="id_producto")
-    private Producto productos;
+    @MapsId("idProducto") // Enlaza con el campo del embeddable
+    @JoinColumn(name = "id_producto")
+    private Producto producto;
 
     public CompraProductoPK getId() {
         return id;
