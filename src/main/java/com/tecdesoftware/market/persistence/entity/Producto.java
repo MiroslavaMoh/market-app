@@ -11,20 +11,34 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name="id_producto")
     private Integer idProducto;
+
     private String nombre;
-    private Integer id_categoria;
-    private String codigo_barras;
-    private Double precio_venta;
-    private Integer cantidad_stock;
+
+    @Column (name="id_categoria")
+    private Integer idCategoria;
+
+    @Column (name="codigo_barras")
+    private String codigoBarras;
+
+    @Column (name="precio_venta")
+    private Double precioVenta;
+
+    @Column (name="cantidad_stock")
+    private Integer cantidadStock;
+
     private Boolean estado;
 
     @ManyToOne
     @JoinColumn(name="id_categoria", insertable=false, updatable = false) //insertar sin modificar
     private Categoria categoria;
 
-    public Integer getIdProducto() {return idProducto;}
+    public Integer getIdProducto() {
+        return idProducto;
+    }
 
-    public void setIdProducto(Integer idProducto) {this.idProducto = idProducto;}
+    public void setIdProducto(Integer idProducto) {
+        this.idProducto = idProducto;
+    }
 
     public String getNombre() {
         return nombre;
@@ -34,36 +48,36 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public Integer getId_categoria() {
-        return id_categoria;
+    public Integer getIdCategoria() {
+        return idCategoria;
     }
 
-    public void setId_categoria(Integer id_categoria) {
-        this.id_categoria = id_categoria;
+    public void setIdCategoria(Integer idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
-    public String getCodigo_barras() {
-        return codigo_barras;
+    public String getCodigoBarras() {
+        return codigoBarras;
     }
 
-    public void setCodigo_barras(String codigo_barras) {
-        this.codigo_barras = codigo_barras;
+    public void setCodigoBarras(String codigoBarras) {
+        this.codigoBarras = codigoBarras;
     }
 
-    public Double getPrecio_venta() {
-        return precio_venta;
+    public Double getPrecioVenta() {
+        return precioVenta;
     }
 
-    public void setPrecio_venta(Double precio_venta) {
-        this.precio_venta = precio_venta;
+    public void setPrecioVenta(Double precioVenta) {
+        this.precioVenta = precioVenta;
     }
 
-    public Integer getCantidad_stock() {
-        return cantidad_stock;
+    public Integer getCantidadStock() {
+        return cantidadStock;
     }
 
-    public void setCantidad_stock(Integer cantidad_stock) {
-        this.cantidad_stock = cantidad_stock;
+    public void setCantidadStock(Integer cantidadStock) {
+        this.cantidadStock = cantidadStock;
     }
 
     public Boolean getEstado() {

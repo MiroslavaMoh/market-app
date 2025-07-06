@@ -13,7 +13,8 @@ public interface ProductoCrudRepository extends CrudRepository<Producto, Integer
     //Optional<Producto> findByNombre(String nombre);
 
     //Query method - select * from producto where id_categoria = 5  order by ASC
-    List <Producto> findByIdCategoriaOrderByAsc(int idCategoria);
+    //List <Producto> findByIdCategoriaOrderByAsc(int idCategoria);
+    List<Producto> findByIdCategoriaOrderByNombreAsc(int idCategoria);
 
     //
     Optional<List<Producto>> findByCantidadStockLessThanAndEstado (int cantidadStock, boolean estado);

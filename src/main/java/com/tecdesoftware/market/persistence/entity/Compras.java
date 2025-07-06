@@ -23,7 +23,7 @@ public class Compras {
     @JoinColumn(name = "id_cliente", insertable=false, updatable=false)
     private Cliente cliente;
 
-    @OneToMany(mappedBy="id_producto")
+    @OneToMany(mappedBy = "compra") // debe coincidir con nombre en CompraProducto
     private List<CompraProducto> productos;
 
     public Integer getId_compra() {
@@ -72,5 +72,21 @@ public class Compras {
 
     public void setEstado(Boolean estado) {
         this.estado = estado;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<CompraProducto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<CompraProducto> productos) {
+        this.productos = productos;
     }
 }

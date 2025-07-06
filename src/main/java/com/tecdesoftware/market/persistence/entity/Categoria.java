@@ -13,11 +13,11 @@ public class Categoria {
     private Integer idCategoria;
 
     @Column(name="descripcion")
-    private Integer description;
+    private String description;
     private Boolean estado;
 
 
-    @OneToMany (mappedBy= "id_categoria")
+    @OneToMany (mappedBy= "categoria")
     private List<Producto> productos;
 
 
@@ -29,11 +29,11 @@ public class Categoria {
         this.idCategoria = idCategoria;
     }
 
-    public Integer getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Integer description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

@@ -1,13 +1,15 @@
 package com.tecdesoftware.market.domain.repository;
 
 import com.tecdesoftware.market.domain.Product;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public interface ProductRepository {
 
-    List<Product> getAll();
+    public List<Product> getAll();
     Optional<List<Product>> getByCategory(int categoryId);
     Optional<List<Product>> getScarceProducts(int quantity);
     Optional<Product> getProduct(int productId);
