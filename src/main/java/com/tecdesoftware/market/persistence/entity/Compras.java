@@ -23,7 +23,8 @@ public class Compras {
     @JoinColumn(name = "id_cliente", insertable=false, updatable=false)
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "compra") // debe coincidir con nombre en CompraProducto
+    //productos que se compraron
+    @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL}) // debe coincidir con nombre en CompraProducto
     private List<CompraProducto> productos;
 
     public Integer getId_compra() {

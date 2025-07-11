@@ -4,20 +4,20 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Purchase {
-    private int purcahseID;
+    private int purchaseID;
     private String clientID;
     private LocalDateTime date;
     private String paymentMethod;
     private String comment;
     private String State;
-    private List<PurchaseItem> item;
+    private List<PurchaseItem> items;
 
-    public int getPurcahseID() {
-        return purcahseID;
+    public int getPurchaseID() {
+        return purchaseID;
     }
 
-    public void setPurcahseID(int purcahseID) {
-        this.purcahseID = purcahseID;
+    public void setPurchaseID(int purchaseID) {
+        this.purchaseID = purchaseID;
     }
 
     public String getClientID() {
@@ -61,10 +61,10 @@ public class Purchase {
     }
 
     public List<PurchaseItem> getItem() {
-        return item;
+        return items;
     }
 
     public void setItem(List<PurchaseItem> item) {
-        this.item = item;
+        this.items = items;
     }
 }
