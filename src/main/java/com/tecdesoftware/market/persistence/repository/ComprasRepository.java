@@ -25,15 +25,21 @@ public class ComprasRepository implements PurchaseRepository {
     }
 
     @Override
-    public Optional<List<Purchase>> getByClient(String clienId) {
-        return compraCrudRepository.findById_cliente(clienId).map(compras -> mapper.toPurchases(compras));
+    public Optional<List<Purchase>> getByClient(String clientId) {
+        return compraCrudRepository.findByIdCliente(clientId).map(compras -> mapper.toPurchases(compras));
         //return Optional.empty();
     }
 
     @Override
     public Purchase save(Purchase purchase) {
         Compras compra = mapper.toCompra(purchase);
-        compra.getProductos().forEach(producto -> producto.setCompra(compra));
+
+        // Proteges el acceso a la lista de productos
+        if (compra.getProductos() != null) {
+            compra.getProductos().forEach(producto -> producto.setCompra(compra));
+        }
+
         return mapper.toPurchase(compraCrudRepository.save(compra));
     }
+
 }

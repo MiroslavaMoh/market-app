@@ -13,7 +13,7 @@ import java.util.List;
 public interface PurchaseMapper {
 @Mappings({
         @Mapping(target = "purchaseID", source = "id_compra"),
-        @Mapping(target = "clientID", source = "id_cliente"),
+        @Mapping(target = "clientID", source = "idCliente"),
         @Mapping(target = "comment", source = "comentario"),
         @Mapping(target = "date", source = "fecha"),
         @Mapping(target = "item", source = "productos"),

@@ -24,11 +24,9 @@ public class Categoria {
     public Integer getIdCategoria() {
         return idCategoria;
     }
-
     public void setIdCategoria(Integer idCategoria) {
         this.idCategoria = idCategoria;
     }
-
     public String getDescription() {
         return description;
     }

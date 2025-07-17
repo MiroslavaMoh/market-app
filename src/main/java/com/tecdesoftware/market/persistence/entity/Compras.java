@@ -1,5 +1,6 @@
 // Importación de persistencia de datos
 package com.tecdesoftware.market.persistence.entity;
+
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -13,19 +14,24 @@ public class Compras {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@Column (name='id_producto')
     private Integer id_compra;
-    private String id_cliente;
+
+    @Column (name="id_cliente")
+    private String idCliente;
+
     private LocalDateTime fecha;
     private String medio_pago;
     private String comentario;
     private Boolean estado;
 
     @ManyToOne
+    //@JoinColumn(name = "id_cliente")
     @JoinColumn(name = "id_cliente", insertable=false, updatable=false)
     private Cliente cliente;
 
     //productos que se compraron
     @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL}) // debe coincidir con nombre en CompraProducto
     private List<CompraProducto> productos;
+    //private List<Producto> productos = new ArrayList<>();
 
     public Integer getId_compra() {
         return id_compra;
@@ -35,12 +41,12 @@ public class Compras {
         this.id_compra = id_compra;
     }
 
-    public String getId_cliente() {
-        return id_cliente;
+    public String getIdCliente() {
+        return idCliente;
     }
 
-    public void setId_cliente(String id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
 
     public LocalDateTime getFecha() {
@@ -75,19 +81,15 @@ public class Compras {
         this.estado = estado;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
+    public Cliente getCliente() { return cliente;}
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
+    public void setCliente(Cliente cliente) {this.cliente = cliente;}
 
-    public List<CompraProducto> getProductos() {
-        return productos;
-    }
+    public List<CompraProducto> getProductos() {return productos;}
+    public void setProductos(List<CompraProducto> productos) {this.productos = productos;}
 
-    public void setProductos(List<CompraProducto> productos) {
-        this.productos = productos;
-    }
+    //public List<Producto> getProductos() {return productos;}
+    //public void setProductos(List<Producto> productos) {this.productos = productos;}
+
+
 }
