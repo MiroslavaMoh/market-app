@@ -9,7 +9,7 @@ import java.util.Optional;
 @Repository
 public interface ProductRepository {
 
-    public List<Product> getAll();
+    List<Product> getAll();
     Optional<List<Product>> getByCategory(int categoryId);
     Optional<List<Product>> getScarceProducts(int quantity);
     Optional<Product> getProduct(int productId);

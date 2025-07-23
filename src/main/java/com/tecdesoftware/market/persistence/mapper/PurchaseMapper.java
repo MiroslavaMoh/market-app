@@ -12,20 +12,27 @@ import java.util.List;
 @Mapper(componentModel="spring", uses ={PurchaseItemMapper.class})
 public interface PurchaseMapper {
 @Mappings({
-        @Mapping(target = "purchaseID", source = "id_compra"),
-        @Mapping(target = "clientID", source = "idCliente"),
+        @Mapping(target = "purchaseId", source = "idCompra"),
+        @Mapping(target = "clientId", source = "idCliente"),
         @Mapping(target = "comment", source = "comentario"),
         @Mapping(target = "date", source = "fecha"),
-        @Mapping(target = "item", source = "productos"),
+        @Mapping(target = "items", source = "productos"), //items error
         @Mapping(target = "state", source = "estado"),
-        @Mapping(target = "paymentMethod", source = "medio_pago")
+        @Mapping(target = "paymentMethod", source = "medioPago")
 })
+
+
+
 
 Purchase toPurchase(Compras compra);
 List<Purchase> toPurchases(List<Compras> compras);
 
-    @InheritInverseConfiguration  //invertir proceso
-    @Mapping (target = "cliente", ignore = true)
-    Compras toCompra (Purchase purchase);
+    @InheritInverseConfiguration
+    @Mappings({
+            @Mapping(target = "cliente", ignore = true),
+            @Mapping(target = "idCliente", source = "clientId"),
+            @Mapping(target = "productos", source = "items")//items error
+    })
+    Compras toCompra(Purchase purchase);
 
 }

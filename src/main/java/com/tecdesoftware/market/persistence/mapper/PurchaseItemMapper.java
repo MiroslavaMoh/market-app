@@ -22,8 +22,16 @@ public interface PurchaseItemMapper {
     @Mappings({
     @Mapping(target = "id.idCompra", ignore = true),
     @Mapping(target = "compra", ignore = true),
-    @Mapping(target = "producto", ignore = true),
+    //@Mapping(target = "producto", ignore = true),
+    @Mapping(target = "producto", expression = "java(mapToProducto(item.getProductId()))")
     })
     CompraProducto toCompraProducto(PurchaseItem item); //invertir proceso
+
+    // Método auxiliar para evitar el error de producto null
+    default com.tecdesoftware.market.persistence.entity.Producto mapToProducto(int idProducto) {
+        com.tecdesoftware.market.persistence.entity.Producto producto = new com.tecdesoftware.market.persistence.entity.Producto();
+        producto.setIdProducto(idProducto);
+        return producto;
+    }
 
 }

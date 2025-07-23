@@ -19,6 +19,8 @@ public class ProductoRepository implements ProductRepository {
     private ProductoCrudRepository productoCrudRepository;
     @Autowired
     private ProductMapper productMapper;
+
+
     @Override
     public List<Product> getAll() {
         List<Producto> productos =(List<Producto>) productoCrudRepository.findAll();
@@ -37,9 +39,15 @@ public class ProductoRepository implements ProductRepository {
         return productos.map(prods -> productMapper.toProducts(prods));
     }
 
-    @Override
+    /*@Override
     public Optional<Product> getProduct(int idProducto){
         return productoCrudRepository.findById(idProducto).map(producto -> productMapper.toProduct(producto));
+    }*/
+
+    //Obtener un producto dado el id
+    @Override
+    public Optional<Product> getProduct(int productId) {
+        return productoCrudRepository.findById(productId).map(producto -> productMapper.toProduct(producto));
     }
 
     @Override

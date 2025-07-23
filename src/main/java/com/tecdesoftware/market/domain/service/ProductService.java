@@ -35,9 +35,12 @@ public class ProductService {
     }
 
     public boolean delete(int productId) {
-        return getProduct(productId).map(product -> {
+        //Verificar que existe el producto que se desea eliminar
+        if (getProduct(productId).isPresent()){
             productRepository.delete(productId);
             return true;
-        }).orElse(false);
+        } else {
+            return false;
+        }
     }
 }

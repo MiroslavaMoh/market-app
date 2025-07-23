@@ -4,28 +4,29 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Purchase {
-    private int purchaseID;
-    private String clientID;
+
+    private int purchaseId;
+    private String clientId;
     private LocalDateTime date;
     private String paymentMethod;
     private String comment;
-    private String State;
+    private String state;
     private List<PurchaseItem> items;
 
-    public int getPurchaseID() {
-        return purchaseID;
+    public int getPurchaseId() {
+        return purchaseId;
     }
 
-    public void setPurchaseID(int purchaseID) {
-        this.purchaseID = purchaseID;
+    public void setPurchaseId(int purchaseId) {
+        this.purchaseId = purchaseId;
     }
 
-    public String getClientID() {
-        return clientID;
+    public String getClientId() {
+        return clientId;
     }
 
-    public void setClientID(String clientID) {
-        this.clientID = clientID;
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 
     public LocalDateTime getDate() {
@@ -44,6 +45,22 @@ public class Purchase {
         this.paymentMethod = paymentMethod;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public List<PurchaseItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<PurchaseItem> items) {
+        this.items = items;
+    }
+
     public String getComment() {
         return comment;
     }
@@ -52,19 +69,5 @@ public class Purchase {
         this.comment = comment;
     }
 
-    public String getState() {
-        return State;
-    }
 
-    public void setState(String state) {
-        State = state;
-    }
-
-    public List<PurchaseItem> getItem() {
-        return items;
-    }
-
-    public void setItem(List<PurchaseItem> item) {
-        this.items = items;
-    }
 }

@@ -13,32 +13,71 @@ public class Compras {
     //valor unico autoincrementable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@Column (name='id_producto')
-    private Integer id_compra;
+    @Column(name="id_compra")
+    private Integer idCompra;
 
-    @Column (name="id_cliente")
+    //@JoinColumn(name = "id_cliente", insertable=false, updatable=false)
+    @Column(name="id_cliente")
     private String idCliente;
 
     private LocalDateTime fecha;
-    private String medio_pago;
+
+    @Column(name="medio_pago")
+    private String medioPago;
     private String comentario;
-    private Boolean estado;
+    private String  estado;
 
     @ManyToOne
-    //@JoinColumn(name = "id_cliente")
     @JoinColumn(name = "id_cliente", insertable=false, updatable=false)
+    //@JoinColumn(name = "id_cliente")
     private Cliente cliente;
+    //esto me va a decir cuantos productos se compraron
 
-    //productos que se compraron
-    @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL}) // debe coincidir con nombre en CompraProducto
+    @OneToMany(mappedBy="compra", cascade={CascadeType.ALL})
     private List<CompraProducto> productos;
-    //private List<Producto> productos = new ArrayList<>();
+    //private List<CompraProducto> productos = new ArrayList<>();
 
-    public Integer getId_compra() {
-        return id_compra;
+
+    public LocalDateTime getFecha() {
+        return fecha;
     }
 
-    public void setId_compra(Integer id_compra) {
-        this.id_compra = id_compra;
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
+
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<CompraProducto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<CompraProducto> productos) {
+        this.productos = productos;
+    }
+
+    public Integer getIdCompra() {
+        return idCompra;
+    }
+
+    public void setIdCompra(Integer idCompra) {
+        this.idCompra = idCompra;
     }
 
     public String getIdCliente() {
@@ -49,47 +88,19 @@ public class Compras {
         this.idCliente = idCliente;
     }
 
-    public LocalDateTime getFecha() {
-        return fecha;
+    public String getMedioPago() {
+        return medioPago;
     }
 
-    public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
+    public void setMedioPago(String medioPago) {
+        this.medioPago = medioPago;
     }
 
-    public String getMedio_pago() {
-        return medio_pago;
-    }
-
-    public void setMedio_pago(String medio_pago) {
-        this.medio_pago = medio_pago;
-    }
-
-    public String getComentario() {
-        return comentario;
-    }
-
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
-    }
-
-    public Boolean getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    public Cliente getCliente() { return cliente;}
-
-    public void setCliente(Cliente cliente) {this.cliente = cliente;}
-
-    public List<CompraProducto> getProductos() {return productos;}
-    public void setProductos(List<CompraProducto> productos) {this.productos = productos;}
-
-    //public List<Producto> getProductos() {return productos;}
-    //public void setProductos(List<Producto> productos) {this.productos = productos;}
-
-
 }
