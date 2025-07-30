@@ -4,6 +4,9 @@ public class Product {
     private int productId;
     private String name;
     private int categoryId;
+    private String color;
+    private String image;
+    private String description;
     private double price;
     private int stock;
     private boolean active;
@@ -63,5 +66,29 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

@@ -17,8 +17,14 @@ public class Producto {
     @Column (name="id_categoria")
     private Integer idCategoria;
 
-    @Column (name="codigo_barras")
-    private String codigoBarras;
+    @Column (name="ui_color")
+    private String UIColor;
+
+    @Column (name="image_path")
+    private String imagePath;
+
+    @Column (name="description")
+    private String description;
 
     @Column (name="precio_venta")
     private Double precioVenta;
@@ -56,12 +62,28 @@ public class Producto {
         this.idCategoria = idCategoria;
     }
 
-    public String getCodigoBarras() {
-        return codigoBarras;
+    public String getUIColor() {
+        return UIColor;
     }
 
-    public void setCodigoBarras(String codigoBarras) {
-        this.codigoBarras = codigoBarras;
+    public void setUIColor(String UIColor) {
+        this.UIColor = UIColor;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Double getPrecioVenta() {

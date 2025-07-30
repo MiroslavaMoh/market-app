@@ -16,6 +16,9 @@ public interface ProductMapper {
             @Mapping(source = "idProducto", target = "productId"),
             @Mapping(source = "nombre", target = "name"),
             @Mapping(source = "idCategoria", target = "categoryId"),
+            @Mapping(source = "UIColor", target = "color"),
+            @Mapping(source = "imagePath", target = "image"),
+            @Mapping(source = "description", target = "description"),
             @Mapping(source = "precioVenta", target = "price"),
             @Mapping(source = "cantidadStock", target = "stock"),
             @Mapping(source = "estado", target = "active"),
@@ -27,6 +30,6 @@ public interface ProductMapper {
 
     @InheritInverseConfiguration  //invertir proceso
 
-    @Mapping(target = "codigoBarras", ignore = true)
+    //@Mapping(target = "codigoBarras", ignore = true)
     Producto toProducto(Product product);
 }

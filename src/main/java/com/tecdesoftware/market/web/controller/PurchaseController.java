@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//Le dice a Spring que va a ser el controlador de una API REST
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping
 @Tag(name = "Purchase Controller", description = "Manage purchases and its item's list.")
@@ -58,45 +60,45 @@ public class PurchaseController {
                                     name = "Example Purchase",
                                     value = """                                            
                                             {
-                                                                "purchaseId": 5,
-                                                                "clientId": "4546221",
-                                                                "date": "1992-08-10T17:30:00",
-                                                                "paymentMethod": "T",
-                                                                "comment": "",
-                                                                "state": "true",
-                                                                "items": [
-                                                                    {
-                                                                        "productId": 5,
-                                                                        "quantity": 10,
-                                                                        "total": 3000.0,
-                                                                        "active": true
-                                                                    },
-                                                                    {
-                                                                        "productId": 22,
-                                                                        "quantity": 1,
-                                                                        "total": 4000.0,
-                                                                        "active": true
-                                                                    },
-                                                                    {
-                                                                        "productId": 27,
-                                                                        "quantity": 1,
-                                                                        "total": 9000.0,
-                                                                        "active": true
-                                                                    },
-                                                                    {
-                                                                        "productId": 36,
-                                                                        "quantity": 1,
-                                                                        "total": 40000.0,
-                                                                        "active": true
-                                                                    },
-                                                                    {
-                                                                        "productId": 49,
-                                                                        "quantity": 2,
-                                                                        "total": 16400.0,
-                                                                        "active": true
-                                                                    }
-                                                                ]
-                                                            }
+                                                    {
+                                                                   "clientId": "CLI001",
+                                                                   "date": "1992-08-10T17:30:00",
+                                                                   "paymentMethod": "T",
+                                                                   "comment": "",
+                                                                   "state": "true",
+                                                                   "items": [
+                                                                     {
+                                                                       "productId": 17,
+                                                                       "quantity": 10,
+                                                                       "total": 3000,
+                                                                       "active": true
+                                                                     },
+                                                                     {
+                                                                       "productId": 22,
+                                                                       "quantity": 1,
+                                                                       "total": 4000,
+                                                                       "active": true
+                                                                     },
+                                                                     {
+                                                                       "productId": 27,
+                                                                       "quantity": 1,
+                                                                       "total": 9000,
+                                                                       "active": true
+                                                                     },
+                                                                     {
+                                                                       "productId": 36,
+                                                                       "quantity": 1,
+                                                                       "total": 40000,
+                                                                       "active": true
+                                                                     },
+                                                                     {
+                                                                       "productId": 44,
+                                                                       "quantity": 2,
+                                                                       "total": 16400,
+                                                                       "active": true
+                                                                     }
+                                                                   ]
+                                                                 }
                             """
                             )
                     )
