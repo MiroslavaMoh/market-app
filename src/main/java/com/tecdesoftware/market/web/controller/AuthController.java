@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*", exposedHeaders = "Authorization")
+
+//@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/auth")
 @Tag(name = "Autenticación", description = "Endpoint para iniciar sesión y obtener JWT")

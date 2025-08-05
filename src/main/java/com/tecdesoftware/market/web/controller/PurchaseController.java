@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*", exposedHeaders = "Authorization")
+
+//@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping
 @Tag(name = "Purchase Controller", description = "Manage purchases and its item's list.")

@@ -4,15 +4,11 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;
-
 import java.util.Date;
-
 @Component
 public class JwtUtil {
-
     // Clave secreta usada para firmar digitalmente los tokens
     private final String SECRET_KEY = "eO0jhFz67uKp8Wx93jsLP!4oMr9qBfAQ";
-
     // Genera un token válido por 3 minutos con el correo del usuario como 'subject'
     public String generateToken(String correo) {
         return Jwts.builder()
@@ -22,7 +18,6 @@ public class JwtUtil {
                 .signWith(Keys.hmacShaKeyFor(SECRET_KEY.getBytes()), SignatureAlgorithm.HS256)
                 .compact();
     }
-
     // Extrae el 'subject' del token (correo electrónico)
     public String extractUsername(String token) {
         //Analiza el token
@@ -38,7 +33,6 @@ public class JwtUtil {
                 //Obtiene el subject del token, que en este caso es el correo electrónico del usuario.
                 .getSubject();
     }
-
     // Valida que el token esté bien formado y no haya expirado
     public boolean validateToken(String token) {
         try {
